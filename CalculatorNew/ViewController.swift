@@ -9,7 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var labelOutlet: UILabel!
+    @IBAction func pointPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func percentPressed(_ sender: UIButton) {
+    }
+    @IBAction func signPressed(_ sender: UIButton) {
+    }
+    @IBAction func clearPressed(_ sender: UIButton) {
+    }
     @IBAction func additionPressed(_ sender: UIButton) {
     }
     @IBAction func subtractionPressed(_ sender: UIButton) {
