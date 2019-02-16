@@ -9,13 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var numberPressed : Int = 0 {
-        didSet {
-            
-        }
-    }
-    var numberSaved = 0
-    var numberHolder = 0
+    
+    var outP = ""
+    var number = 0
+    
     var mathSign = ""
     @IBOutlet weak var labelOutlet: UILabel!
     @IBAction func pointPressed(_ sender: UIButton) {
@@ -41,15 +38,7 @@ class ViewController: UIViewController {
     }
     @IBAction func numberPressed(_ sender: UIButton) {
         
-        var number : Int = numberHolder {
-            didSet {
-                
-                print (mathematicalOperation(num1: oldValue, mathSign: mathSign, num2: number))
-                
-            }
-        }
         number = Int(sender.title(for: .normal)!)!
-        numberHolder = number
         
         
     }
