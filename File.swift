@@ -9,17 +9,27 @@
 import Foundation
 
 struct Calculator {
-    var firstNumber : String = ""
-    var secondNumber : String = ""
-    var mathSign : String = ""
+    var firstNumber : String
+    var secondNumber : String
+    var mathSign : String
+    var ouputText : String
+    var storedArray: [String]
     
     mutating func storeNumber (input: String){
         if firstNumber.isEmpty{
-            firstNumber = input
+            self.firstNumber.append(input)
+            self.ouputText = self.firstNumber
         } else if !firstNumber.isEmpty && mathSign.isEmpty{
-            mathSign = input
+            self.mathSign.append(input)
         } else {
-            secondNumber = input
+            self.secondNumber.append(input)
+            self.ouputText = self.secondNumber
         }
+    }
+     mutating func pushNumber (input: String){
+        self.storedArray.append(input)
+//        if storedArray.count < 3 {
+//            storedArray.append(input)
+//        }
     }
 }

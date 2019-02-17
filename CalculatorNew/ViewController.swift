@@ -11,10 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     
     var outP = ""
-    var number = 0
-    
+    var number = ""
+    var firstNumber = ""
+    var secondNumber = ""
     var mathSign = ""
+    var storedArray = [String]()
+    var outputText = ""
     @IBOutlet weak var labelOutlet: UILabel!
+    @IBOutlet var operatorOutlet: [UIButton]!
+    
     @IBAction func pointPressed(_ sender: UIButton) {
     }
     
@@ -24,29 +29,37 @@ class ViewController: UIViewController {
     }
     @IBAction func clearPressed(_ sender: UIButton) {
     }
-    @IBAction func additionPressed(_ sender: UIButton) {
+    @IBAction func operatorPressed(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.yellow
         mathSign = sender.title(for: .normal)!
+        //print(number)
+       pushNumber(input: mathSign)
+
     }
-    @IBAction func subtractionPressed(_ sender: UIButton) {
-        mathSign = sender.title(for: .normal)!
-    }
-    @IBAction func multiplyPressed(_ sender: UIButton) {
-        mathSign = sender.title(for: .normal)!
-    }
-    @IBAction func divisionPressed(_ sender: UIButton) {
-        mathSign = sender.title(for: .normal)!
-    }
+    
+    
     @IBAction func numberPressed(_ sender: UIButton) {
         
-        number = Int(sender.title(for: .normal)!)!
+        for button in operatorOutlet {
+            button.backgroundColor = UIColor.red
+        }
+        number = sender.title(for: .normal)!
+        pushNumber(input: number)
         
+        
+        labelOutlet.text = number
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    var newCalculator : Calculator!
+    //newCalculator = Calculator()
     
+    func stringToInt (input: String) -> Int {
+        return Int(input)!
+    }
     func mathematicalOperation (num1: Int , mathSign: String, num2: Int) -> String {
         var output = ""
         switch mathSign {
@@ -61,5 +74,16 @@ class ViewController: UIViewController {
         }
         return output
     }
+    func pushNumber (input: String){
+        
+                if storedArray.count < 3 {
+                    storedArray.append(input)
+                } else {
+                    outP = mathematicalOperation(num1: stringToInt(input: storedArray[0]), mathSign: storedArray[1], num2: stringToInt(input: storedArray[2]))
+                    labelOutlet.text = outP
+                    storedArray = [outP, input]
+        }
+    }
+    
 }
 

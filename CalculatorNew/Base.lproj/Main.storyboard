@@ -83,7 +83,7 @@
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="÷"/>
                                                                 <connections>
-                                                                    <action selector="divisionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vky-my-ifl"/>
+                                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="utb-bX-fHd"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -128,7 +128,7 @@
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="x"/>
                                                                 <connections>
-                                                                    <action selector="multiplyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E8A-eC-ZxJ"/>
+                                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="emN-4J-Hie"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -173,7 +173,7 @@
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="-"/>
                                                                 <connections>
-                                                                    <action selector="subtractionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="26Y-Ao-m3V"/>
+                                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J9s-fy-ZzL"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -218,7 +218,7 @@
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="+"/>
                                                                 <connections>
-                                                                    <action selector="additionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vna-9e-UJx"/>
+                                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YIU-Xc-BGl"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -284,6 +284,11 @@
                     </view>
                     <connections>
                         <outlet property="labelOutlet" destination="Tyk-cx-tRJ" id="m4v-Ig-ktT"/>
+                        <outletCollection property="operatorOutlet" destination="T9G-y4-5VM" collectionClass="NSMutableArray" id="uud-Qh-vI2"/>
+                        <outletCollection property="operatorOutlet" destination="bXq-go-lHs" collectionClass="NSMutableArray" id="usu-zO-hRc"/>
+                        <outletCollection property="operatorOutlet" destination="4Jf-ce-eMP" collectionClass="NSMutableArray" id="shy-zE-dtG"/>
+                        <outletCollection property="operatorOutlet" destination="83T-cB-MNE" collectionClass="NSMutableArray" id="ELy-eq-QKC"/>
+                        <outletCollection property="operatorOutlet" destination="h3S-JD-BUH" collectionClass="NSMutableArray" id="O3A-Zq-mdi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
