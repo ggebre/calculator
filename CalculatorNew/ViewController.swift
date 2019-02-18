@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var mathSign = ""
     var storedArray = [String]()
     var outputText = ""
+   let operators = ["+" , "-", "x", "÷"]
     @IBOutlet weak var labelOutlet: UILabel!
     @IBOutlet var operatorOutlet: [UIButton]!
     
@@ -32,9 +33,23 @@ class ViewController: UIViewController {
     @IBAction func operatorPressed(_ sender: UIButton) {
         sender.backgroundColor = UIColor.yellow
         mathSign = sender.title(for: .normal)!
-        //print(number)
-       pushNumber(input: mathSign)
+        print(storedArray)
+        //pushNumber(input: number)
+        if storedArray.count <= 2 {
+            pushNumber(input: number)
+        } else {
+            pushNumber(input: mathSign)
+        }
+        
+        print(storedArray)
+        pushNumber(input: mathSign)
+        print(storedArray)
 
+       
+        
+
+        number = ""
+        
     }
     
     
@@ -43,8 +58,8 @@ class ViewController: UIViewController {
         for button in operatorOutlet {
             button.backgroundColor = UIColor.red
         }
-        number = sender.title(for: .normal)!
-        pushNumber(input: number)
+        number += sender.title(for: .normal)!
+        
         
         
         labelOutlet.text = number
@@ -57,10 +72,10 @@ class ViewController: UIViewController {
     var newCalculator : Calculator!
     //newCalculator = Calculator()
     
-    func stringToInt (input: String) -> Int {
-        return Int(input)!
+    func stringToInt (input: String) -> Double {
+        return Double(input)!
     }
-    func mathematicalOperation (num1: Int , mathSign: String, num2: Int) -> String {
+    func mathematicalOperation (num1: Double , mathSign: String, num2: Double) -> String {
         var output = ""
         switch mathSign {
         case  "+" :
@@ -70,19 +85,29 @@ class ViewController: UIViewController {
         case  "x" :
             output = "\(num1 * num2)"
         default:
-            output = "\(Double(num1) / Double(num2))"
+            output = "\(num1 / num2)"
         }
         return output
     }
     func pushNumber (input: String){
         
                 if storedArray.count < 3 {
-                    storedArray.append(input)
+                    if storedArray.count == 2 && operators.contains(input){
+                        storedArray[1] = input
+                        //print(storedArray)
+                    } else {
+                        storedArray.append(input)
+                        //print(storedArray)
+                    }
+                    
                 } else {
                     outP = mathematicalOperation(num1: stringToInt(input: storedArray[0]), mathSign: storedArray[1], num2: stringToInt(input: storedArray[2]))
                     labelOutlet.text = outP
+                    //print(storedArray)
                     storedArray = [outP, input]
+                    //print(storedArray)
         }
+       
     }
     
 }
