@@ -33,18 +33,24 @@ class ViewController: UIViewController {
     @IBAction func operatorPressed(_ sender: UIButton) {
         sender.backgroundColor = UIColor.yellow
         mathSign = sender.title(for: .normal)!
-        print(storedArray)
-        //pushNumber(input: number)
+        
+        if !number.isEmpty {
+            
+        
         if storedArray.count <= 2 {
             pushNumber(input: number)
+            
         } else {
             pushNumber(input: mathSign)
+            
         }
         
-        print(storedArray)
+            
+          
+        }
+        
         pushNumber(input: mathSign)
-        print(storedArray)
-
+        
        
         
 
@@ -93,6 +99,7 @@ class ViewController: UIViewController {
         
                 if storedArray.count < 3 {
                     if storedArray.count == 2 && operators.contains(input){
+                        //print(storedArray)
                         storedArray[1] = input
                         //print(storedArray)
                     } else {
