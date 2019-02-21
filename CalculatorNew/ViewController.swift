@@ -24,25 +24,24 @@ class ViewController: UIViewController {
    
     
     @IBAction func percentPressed(_ sender: UIButton) {
+        labelOutlet.text = "\(Double (labelOutlet.text!)! / 100)"
     }
     @IBAction func signPressed(_ sender: UIButton) {
-        
-//        number = "-" + number
-//        if !storedArray.isEmpty{
-//            storedArray[0] = "-\(storedArray[0])"
-//            labelOutlet.text = storedArray[0]
-//        }
+        labelOutlet.text = "\(-Double (labelOutlet.text!)!)"
+       number = labelOutlet.text!
         
     }
-    @IBAction func clearPressed(_ sender: UIButton) {
-        
-        labelOutlet.text = "0"
-    }
+    
     @IBAction func operatorPressed(_ sender: UIButton) {
         sender.backgroundColor = UIColor.yellow
         mathSign = sender.title(for: .normal)!
         calculation()
         
+    }
+    @IBAction func clearPressed(_ sender: UIButton) {
+        
+        labelOutlet.text = "0"
+        number = labelOutlet.text!
     }
     
     
@@ -109,6 +108,9 @@ class ViewController: UIViewController {
                     
         }
        
+    }
+    func updateUI() {
+        
     }
     
     
